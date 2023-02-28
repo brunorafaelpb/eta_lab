@@ -51,15 +51,33 @@ class Phonebook:
         """
 
         :return: return all names in phonebook
-        """
+
         return self.entries.keys()
+        """
+        """
+        CORREÇÃO: Os nomes agora são retornados em uma lista
+        """
+        lista_nomes = []
+        for name in self.entries.keys():
+            lista_nomes.append(name)
+        return lista_nomes
 
     def get_numbers(self):
         """
 
         :return: return all numbers in phonebook
-        """
+
         return self.entries.values()
+        """
+
+        """
+        CORREÇÃO: Os números agora são retornados em uma lista
+        """
+        lista = []
+        for number in self.entries.values():
+            lista.append(number)
+        return lista
+
 
     def clear(self):
         """
@@ -75,9 +93,12 @@ class Phonebook:
         :param search_name: string with name for search
         :return: return list with results of search
         """
+        """
+        CORREÇÃO: O if não pode ser "not in", ele deve ser apenas "in"
+        """
         result = []
         for name, number in self.entries.items():
-            if search_name not in name:
+            if search_name in name:
                 result.append({name, number})
         return result
 
@@ -85,15 +106,30 @@ class Phonebook:
         """
 
         :return: return phonebook in sorted order
-        """
         return self.entries
+
+        """
+        """
+        CORREÇÃO: O método agora retorna apenas os números em ordem crescente.
+        """
+        lista = self.get_numbers()
+        lista.sort()
+        return lista
 
     def get_phonebook_reverse(self):
         """
 
         :return: return phonebook in reverse sorted order
-        """
+
         return self.entries
+        """
+
+        """
+        CORREÇÃO: O método agora retorna apenas os números em ordem decrescente.
+        """
+        lista = self.get_numbers()
+        lista.sort(reverse=True)
+        return lista
 
     def delete(self, name):
         """
