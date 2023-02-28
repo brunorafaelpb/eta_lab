@@ -10,40 +10,32 @@ class Phonebook:
         :param number: number of person in string
         :return: 'Nome invalido' or 'Numero invalido' or 'Numero adicionado'
         """
-        if '#' in name:
-            return 'Nome invalido'
-        if '@' in name:
-            return 'Nme invalido'
-        if '!' in name:
-            return 'Nome invalido'
-        if '$' in name:
-            return 'Nome invalio'
-        if '%' in name:
-            return 'Nome invalido'
+
+        """
+        MELHORIA: Padronizar e corrigir os textos de retorno e diminuir a quantidade de "if"
+        """
+        if ('#' or '@' or '!' or '$' or '%') in name:
+            return 'Nome inválido'
 
         if len(number) < 0:
-            return 'Numero invalid'
+            return 'Número inválido'
 
         if name not in self.entries:
             self.entries[name] = number
 
-        return 'Numero adicionado'
+        return 'Número adicionado'
 
     def lookup(self, name):
         """
         :param name: name of person in string
         :return: return number of person with name
         """
-        if '#' in name:
-            return 'Nome invaldo'
-        if '@' in name:
-            return 'Nome invalido'
-        if '!' in name:
-            return 'Nme invalido'
-        if '$' in name:
-            return 'Nome invalido'
-        if '%' in name:
-            return 'Nome nvalido'
+
+        """
+        MELHORIA: Padronizar o texto de retorno e diminuir a quantidade de "if"
+        """
+        if ('#' or '@' or '!' or '$' or '%') in name:
+            return 'Nome inválido'
 
         return self.entries[name]
 

@@ -12,7 +12,7 @@ class TestPhonebook:
 
     @pytest.fixture
     def msg_contato_add(self):
-        return "Numero adicionado"
+        return "Número adicionado"
 
     @pytest.fixture
     def msg_phonebook_clear(self):
